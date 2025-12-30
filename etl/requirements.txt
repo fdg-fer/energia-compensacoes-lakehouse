@@ -1,0 +1,6 @@
+boto3
+pyarrow
+pandas
+python-dotenv
+sqlalchemy
+requests
