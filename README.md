@@ -36,20 +36,18 @@ Esses indicadores estão associados a diferentes tipos de compensação aplicado
 
 ## 🏗️ Arquitetura do projeto
 
-
-## 🏗️ Arquitetura do projeto
-
+```text
 CKAN (ANEEL API)
-|
-v
+        |
+        v
 Python (requests + pandas)
-|
-v
+        |
+        v
 Parquet (particionado)
-|
-v
+        |
+        v
 MinIO (energia-bronze)
-
+```
 
 
 ### Principais características:
@@ -70,7 +68,7 @@ Os dados são armazenados no bucket:
 
 Com a seguinte estrutura de pastas:
 
-´´´ckan/
+```ckan/
 └── compensacoes/
 └── ano=2025/
 ├── mes=01/
@@ -78,7 +76,7 @@ Com a seguinte estrutura de pastas:
 ├── mes=02/
 │ └── part-xxxx.parquet
 └── ...
-
+```
 
 ### 🔑 Particionamento
 - **Ano:** `AnoIndice`
@@ -105,7 +103,7 @@ Esse particionamento reflete fielmente o modelo oficial dos dados da ANEEL e fac
 
 ## 📁 Estrutura do repositório
 
-´´´ckan-energia-dec-fec/
+```ckan-energia-dec-fec/
 │
 ├── etl/
 │ ├── etl_ckan.py # Script principal de ingestão
@@ -120,7 +118,7 @@ Esse particionamento reflete fielmente o modelo oficial dos dados da ANEEL e fac
 ├── .env # Variáveis de ambiente (não versionado)
 ├── .gitignore
 └── README.md
-´´´
+```
 ---
 
 ## ▶️ Como executar o projeto
@@ -167,11 +165,4 @@ A migração para um ambiente em nuvem exigiria apenas a substituição do backe
 
 *Projeto desenvolvido com foco em aprendizado prático e aplicação de boas práticas de Engenharia de Dados.*
 
-
----
-
-Se quiser, no próximo passo eu posso:
-- ajustar o texto para **portfólio pessoal** (mais storytelling), ou  
-- criar um **diagrama de arquitetura** para incluir no README, ou  
-- já escrever o **README da camada Silver** pensando no Databricks.
 
