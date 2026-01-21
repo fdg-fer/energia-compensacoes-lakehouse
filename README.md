@@ -6,8 +6,19 @@ Os dados são extraídos, tratados e armazenados em **formato Parquet**, utiliza
 > Projeto desenvolvido com foco em **engenharia de dados**, boas práticas de ingestão, particionamento e arquitetura **lakehouse**, considerando limitações de ambiente sem cloud e Databricks Community Edition.
 
 ---
-
 ## 🧭 Contexto dos dados
+
+A **ANEEL (Agência Nacional de Energia Elétrica)** disponibiliza mensalmente, em seu portal de dados abertos ([dados.aneel.gov.br](https://dados.aneel.gov.br/)), informações sobre a **qualidade do fornecimento de energia elétrica**, enviadas por todas as **distribuidoras do país**.
+
+Os principais conjuntos de dados tratados neste projeto são:
+
+| Indicador | Nome | Descrição | Unidade |
+|------------|------|------------|----------|
+| **DEC** | Duração Equivalente de Interrupção por Unidade Consumidora | Mede o tempo médio (em horas) que os consumidores ficaram sem energia em determinado período. | horas |
+| **FEC** | Frequência Equivalente de Interrupção por Unidade Consumidora | Mede o número médio de interrupções no fornecimento de energia por unidade consumidora. | vezes |
+| **Compensação** | Compensação Financeira Automática | Representa os valores (em R$) creditados aos consumidores quando os limites de continuidade (DEC/FEC) são ultrapassados. | reais |
+
+Os indicadores **DEC** e **FEC** compõem o conjunto de **indicadores de continuidade do fornecimento**, enquanto o dado de **compensação** reflete o **impacto financeiro regulatório** dessas violações, conforme definido nos **Procedimentos de Distribuição (PRODIST) – Módulo 8** da ANEEL.
 
 A ANEEL disponibiliza, via CKAN, conjuntos de dados relacionados à **continuidade do serviço de distribuição de energia elétrica**.  
 Dentro desse contexto, este projeto trabalha exclusivamente com **dados de compensações financeiras**, que representam valores pagos aos consumidores quando os limites regulatórios de continuidade são ultrapassados.
